@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# This script organizes iPhone photos in a specified directory.
+# It performs the following tasks:
+# 1. Moves hidden files to a separate directory.
+# 2. Converts HEIC photos to PNG format using heif-convert.
+# 3. Moves the original HEIC files to a separate directory.
+# 4. Moves non-JPG/PNG files to a separate directory.
+
 TARGET_EXTENSION="png"
 WORK_DIR="/mnt/c/Users/Noah/Documents/Fotos_Test"
 
@@ -14,7 +21,7 @@ if [ -n "$hidden_files" ]; then
     echo -e "\n ✅ Hidden files moved \n"
 fi
 
-# Convert HEIC to PNG using ImageMagick
+# Convert HEIC to PNG using heif-convert
 if ls -A $WORK_DIR/*.HEIC 1>/dev/null 2>&1; then
 
     # Get the list of images with the HEIC extension
